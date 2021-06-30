@@ -1,0 +1,68 @@
+{
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [{
+		"path": "pages/renli/home",
+		"style": {
+			"enablePullDownRefresh": false,
+			"navigationStyle": "custom"
+		}
+	},{
+		"path": "pages/renli/work",
+		"style": {
+			"enablePullDownRefresh": false,
+			"navigationStyle": "custom"
+		}
+	},{
+		"path": "pages/renli/skill",
+		"style": {
+			"enablePullDownRefresh": false,
+			"navigationStyle": "custom"
+		}
+	},{
+		"path": "pages/renli/daili",
+		"style": {
+			"enablePullDownRefresh": false,
+			"navigationStyle": "custom"
+		}
+	},{
+		"path": "pages/renli/user",
+		"style": {
+			"enablePullDownRefresh": false,
+			"navigationStyle": "custom"
+		}
+	}],
+	"tabBar": {
+		"color": "#8a8a8a",
+		"selectedColor": "#d4237a",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/renli/home",
+			"text": "首页",
+			"iconPath": "static/home_icon/home.png",
+			"selectedIconPath": "static/home_icon/homeb.png"
+		}, {
+			"pagePath": "pages/renli/work",
+			"text": "找工作",
+			"iconPath": "static/home_icon/work.png",
+			"selectedIconPath": "static/home_icon/workb.png"
+		}, {
+			"pagePath": "pages/renli/skill",
+			"text": "加油站",
+			"iconPath": "static/home_icon/skill.png",
+			"selectedIconPath": "static/home_icon/skillb.png"
+		}, {
+			"pagePath": "pages/renli/daili",
+			"text": "申请代理",
+			"iconPath": "static/home_icon/history.png",
+			"selectedIconPath": "static/home_icon/historyb.png"
+		}, {
+			"pagePath": "pages/renli/user",
+			"text": "个人中心",
+			"iconPath": "static/home_icon/user.png",
+			"selectedIconPath": "static/home_icon/userb.png"
+		}]
+	}
+}
