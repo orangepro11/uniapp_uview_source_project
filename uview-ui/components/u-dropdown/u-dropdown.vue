@@ -5,7 +5,8 @@
 		}" :class="{
 			'u-border-bottom': borderBottom
 		}">
-			<view class="u-dropdown__menu__item" v-for="(item, index) in menuList" :key="index" @tap.stop="menuClick(index)">
+			<view class="u-dropdown__menu__item" v-for="(item, index) in menuList" :key="index"
+				@tap.stop="menuClick(index)">
 				<view class="u-flex">
 					<text class="u-dropdown__menu__item__text" :style="{
 						color: item.disabled ? '#c0c4cc' : (index === current || highlightIndex == index) ? activeColor : inactiveColor,
@@ -14,7 +15,10 @@
 					<view class="u-dropdown__menu__item__arrow" :class="{
 						'u-dropdown__menu__item__arrow--rotate': index === current
 					}">
-						<u-icon :custom-style="{display: 'flex'}" :name="menuIcon" :size="$u.addUnit(menuIconSize)" :color="index === current || highlightIndex == index ? activeColor : '#c0c4cc'"></u-icon>
+						<u-icon
+							:custom-style="{display: 'flex',transform:'scale('+(menuIconSize < 24 ? menuIconSize / 24 : 1)+')'}"
+							:name="menuIcon" :size="$u.addUnit(menuIconSize < 24 ? 24 : menuIconSize)"
+							:color="index === current || highlightIndex == index ? activeColor : '#c0c4cc'"></u-icon>
 					</view>
 				</view>
 			</view>
@@ -22,9 +26,9 @@
 		<view class="u-dropdown__content" :style="[contentStyle, {
 			transition: `opacity ${duration / 1000}s linear`,
 			top: $u.addUnit(height),
-			height: contentHeight + 'px'
-		}]"
-		 @tap="maskClick" @touchmove.stop.prevent>
+			height: contentHeight + 'px',
+			pointerEvents: active ? 'auto' : 'none'
+		}]" @tap="maskClick" @touchmove.stop.prevent>
 			<view @tap.stop.prevent class="u-dropdown__content__popup" :style="[popupStyle]">
 				<slot></slot>
 			</view>
@@ -273,7 +277,7 @@
 			left: 0px;
 			bottom: 0;
 			overflow: hidden;
-			
+
 
 			&__mask {
 				position: absolute;
