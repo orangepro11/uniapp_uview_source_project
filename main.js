@@ -51,10 +51,10 @@ Vue.prototype.$wx = {
 		return new Promise((recv, recj) => {
 			uni.login({
 				success: (res) => {
-					this.$u.api.user.login({
+					Vue.prototype.$u.api.user.login({
 						code: res.code
 					}).then((e) => {
-						this.$wx.setLoginData(e,recv,recj);
+						Vue.prototype.$wx.setLoginData(e,recv,recj);
 					});
 				},
 				fail: recj
