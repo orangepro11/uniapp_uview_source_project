@@ -1,6 +1,7 @@
 // 请求拦截 响应拦截
 
 import hostUrl from "@/common/host.js"; //导入域名地址js文件
+import md5Libs from "uview-ui/libs/function/md5";
 
 // 这里的vm，就是我们在vue文件里面的this，所以我们能在这里获取vuex的变量，比如存放在里面的token
 // 同时，我们也可以在此使用getApp().globalData，如果你把token放在getApp().globalData的话，也是可以使用的
@@ -26,13 +27,16 @@ const install = (Vue, vm) => {
 			if(userToken == "")
 				throw "token not exists";
 			var time = parseInt((new Date()).valueOf() / 1000);
-			headers.TOKEN_UID = userToken.split("_")[1];
-			headers.TOKEN_TIME = time;
-			headers.TOKEN_ACCESSSTR = md5("OIKHNSDKFFHGIORY54345276" + md5(userToken.split("_")[0] +
+			if(!config.header)
+				config.header = {};
+			config.header.TOKEN_UID = userToken.split("_")[1];
+			config.header.TOKEN_TIME = time;
+			config.header.TOKEN_ACCESSSTR = md5Libs.md5("OIKHNSDKFFHGIORY54345276" + md5Libs.md5(userToken.split("_")[0] +
 				time));
 		} catch (e) {
 			console.log(e)
 		}
+		console.log(config);
 		return config;
 	}
 	
