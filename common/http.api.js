@@ -1,6 +1,6 @@
 // 接口封装列表
 
-import auth from "@/common/auth.api.js";
+import auth from "@/common/cinema_ticket/auth.api.js";
 
 var apiList = {
 	cinema_ticket: {
