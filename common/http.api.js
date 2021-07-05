@@ -3,7 +3,9 @@
 import auth from "@/common/auth.api.js";
 
 var apiList = {
-	auth
+	cinema_ticket: {
+		auth
+	}
 }
 
 // 此处第二个参数vm，就是我们在页面使用的this，你可以通过vm获取vuex等操作，更多内容详见uView对拦截器的介绍部分：
@@ -11,25 +13,28 @@ var apiList = {
 const install = (Vue, vm) => {
 	// 封装接口参数
 	vm.$u.api = {};
-	for (var k in apiList) {
-		var API = apiList[k];
-		vm.$u.api[k] = {};
-		for (var i in API) {
-			((api, j, key) => {
-				vm.$u.api[k][j] = (params) => {
-					var param = {};
-					for (var i in api.params) {
-						if (!api.params[i].regexp(params[i])) {
-							vm.$u.toast(api.params[i].errmsg);
-							return false;
+	for(var module in apiList){
+		vm.$u.api[module] = {};
+		for (var k in apiList[module]) {
+			var API = apiList[module][k];
+			vm.$u.api[module][k] = {};
+			for (var i in API) {
+				((api, j, key) => {
+					vm.$u.api[module][k][j] = (params) => {
+						var param = {};
+						for (var i in api.params) {
+							if (!api.params[i].regexp(params[i])) {
+								vm.$u.toast(api.params[i].errmsg);
+								return false;
+							}
+							param[i] = params[i];
 						}
-						param[i] = params[i];
+						if (api.method == "POST")
+							return vm.$u.post(api.url, vm.$u.api.urlParamEncode(param));
+						return vm.$u.get(api.url, param);
 					}
-					if (api.method == "POST")
-						return vm.$u.post(api.url, vm.$u.api.urlParamEncode(param));
-					return vm.$u.get(api.url, param);
-				}
-			})(API[i], i, k);
+				})(API[i], i, k);
+			}
 		}
 	}
 	vm.$u.api.urlParamEncode = function(param) {

@@ -24,22 +24,20 @@ const install = (Vue, vm) => {
 	Vue.prototype.$u.http.interceptor.request = (config) => {
 		try {
 			var userToken = uni.getStorageSync('userToken');
-			if(userToken == "")
+			if (userToken == "")
 				throw "token not exists";
 			var time = parseInt((new Date()).valueOf() / 1000);
-			if(!config.header)
+			if (!config.header)
 				config.header = {};
 			config.header.TOKEN_UID = userToken.split("_")[1];
 			config.header.TOKEN_TIME = time;
-			config.header.TOKEN_ACCESSSTR = md5Libs.md5("OIKHNSDKFFHGIORY54345276" + md5Libs.md5(userToken.split("_")[0] +
+			config.header.TOKEN_ACCESSSTR = md5Libs.md5("OIKHNSDKFFHGIORY54345276" + md5Libs.md5(userToken
+				.split("_")[0] +
 				time));
-		} catch (e) {
-			console.log(e)
-		}
-		console.log(config);
+		} catch (e) {}
 		return config;
 	}
-	
+
 	// 响应拦截，判断状态码是否通过
 	Vue.prototype.$u.http.interceptor.response = async (response) => {
 		if (response.statusCode == 200) {
