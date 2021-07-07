@@ -74,6 +74,9 @@
 				current: 0
 			};
 		},
+		onLoad() {
+			this.onPageChange(0);
+		},
 		onShow() {
 			this.callComponentsOnShow(this.current);
 		},
