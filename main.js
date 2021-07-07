@@ -4,6 +4,10 @@ import uView from 'uview-ui';
 import httpInterceptor from '@/common/http.interceptor.js';
 import httpApi from '@/common/http.api.js';
 import store from '@/store';
+
+// import {router,RouterMount} from './router.js'  //路径换成自己的
+// Vue.use(router)
+
 const vuexStore = require('@/store/$u.mixin.js');
 
 Object.values = (obj) => {
