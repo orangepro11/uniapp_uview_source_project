@@ -1,2 +1,2 @@
 // 域名地址
-export default "https://rl.whuying.com";
+export default "https://wxm.zhangzhe.icu";

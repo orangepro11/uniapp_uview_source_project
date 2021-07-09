@@ -3,36 +3,45 @@
 		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
 	},
 	"pages": [{
-		"path": "pages/renli/home",
-		"style": {
-			"enablePullDownRefresh": false,
-			"navigationStyle": "custom"
+			"path": "pages/login/view/login",
+			"name": "login",
+			"style": {
+				"navigationBarTitleText": "一键登陆",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/renli/home",
+			"style": {
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/renli/work",
+			"style": {
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/renli/skill",
+			"style": {
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/renli/daili",
+			"style": {
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/renli/user",
+			"style": {
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
 		}
-	},{
-		"path": "pages/renli/work",
-		"style": {
-			"enablePullDownRefresh": false,
-			"navigationStyle": "custom"
-		}
-	},{
-		"path": "pages/renli/skill",
-		"style": {
-			"enablePullDownRefresh": false,
-			"navigationStyle": "custom"
-		}
-	},{
-		"path": "pages/renli/daili",
-		"style": {
-			"enablePullDownRefresh": false,
-			"navigationStyle": "custom"
-		}
-	},{
-		"path": "pages/renli/user",
-		"style": {
-			"enablePullDownRefresh": false,
-			"navigationStyle": "custom"
-		}
-	}],
+	],
 	"tabBar": {
 		"color": "#8a8a8a",
 		"selectedColor": "#d4237a",

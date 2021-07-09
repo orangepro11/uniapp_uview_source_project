@@ -3,6 +3,8 @@ import App from './App';
 import uView from 'uview-ui';
 import httpInterceptor from '@/common/http.interceptor.js';
 import httpApi from '@/common/http.api.js';
+// import httpInterceptor from '@/common/http.ninterceptor.js';
+// import httpApi from '@/common/http.napi.js';
 import store from '@/store';
 
 // import {router,RouterMount} from './router.js'  //路径换成自己的

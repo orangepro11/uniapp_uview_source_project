@@ -1,7 +1,5 @@
 <!--空布局:
-
-可作为独立的组件, 不使用mescroll的页面也能单独引入, 以便APP全局统一管理:
-import MescrollEmpty from '@/components/mescroll-uni/components/mescroll-empty.vue';
+遵循easycom规范, 可作为独立的组件, 不使用mescroll的页面也能使用:
 <mescroll-empty v-if="isShowEmpty" :option="optEmpty" @emptyclick="emptyClick"></mescroll-empty>
 -->
 <template>
@@ -14,9 +12,9 @@ import MescrollEmpty from '@/components/mescroll-uni/components/mescroll-empty.v
 
 <script>
 // 引入全局配置
-import GlobalOption from './../mescroll-uni-option.js';
+import GlobalOption from '../mescroll-uni/mescroll-uni-option.js';
 // 引入国际化工具类
-import mescrollI18n from './../mescroll-i18n.js';
+import mescrollI18n from '../mescroll-uni/mescroll-i18n.js';
 export default {
 	props: {
 		// empty的配置项: 默认为GlobalOption.up.empty

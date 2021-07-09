@@ -6,7 +6,7 @@ import {
 } from 'uni-simple-router';
 
 let [loginStatus, appOnLaunch] = [null, 0];
-const path = 'https://wmm.qudaogo.com/api/v1/user/login'
+const path = 'https://wxm.zhangzhe.icu/api/v1/auth/app_lets_login'
 
 const isLogin = async function() {
 	const js_code = await new Promise((resolve, reject) => {
@@ -35,8 +35,8 @@ const login=async function(){
 	const [, {
 		data
 	}] = await isLogin();
-	if (data.code === 0 && data.data.access_token) {
-		uni.setStorageSync('token', data.data.access_token)
+	if (data.code === 20000 && data.data.token) {
+		uni.setStorageSync('token', data.data.token)
 	}
 }
 
@@ -49,9 +49,9 @@ const loginToPage = async function(to, from, next) {
 		const [, {
 			data
 		}] = await isLogin();
-		if (data.code === 0 && data.access_token) {
-			uni.setStorageSync('token', data.access_token)
-			token = data.token
+		if (data.code === 0 && data.data.token) {
+			uni.setStorageSync('token', data.data.token)
+			token = data.data.token
 		}
 	}
 	if (token) { // 已经登录
@@ -97,7 +97,6 @@ const router = createRouter({
 
 //全局路由前置守卫
 router.beforeEach((to, from, next) => {
-	console.log(to)
 	if(appOnLaunch===0){
 		login()
 	}

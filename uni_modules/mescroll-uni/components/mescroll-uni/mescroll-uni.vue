@@ -80,8 +80,6 @@
 	import MeScroll from './mescroll-uni.js';
 	// 引入全局配置
 	import GlobalOption from './mescroll-uni-option.js';
-	// 引入空布局组件
-	import MescrollEmpty from './components/mescroll-empty.vue';
 	// 引入国际化工具类
 	import mescrollI18n from './mescroll-i18n.js';
 	// 引入回到顶部组件
@@ -114,7 +112,6 @@
 		name: 'mescroll-uni',
 		mixins: [WxsMixin],
 		components: {
-			MescrollEmpty,
 			MescrollTop
 		},
 		props: {
