@@ -5,6 +5,7 @@ import httpInterceptor from '@/common/http.interceptor.js';
 import httpApi from '@/common/http.api.js';
 // import httpInterceptor from '@/common/http.ninterceptor.js';
 // import httpApi from '@/common/http.napi.js';
+import goPageWithObjectAndCallback from "@/common/goPageWithObjectAndCallback.js";
 import store from '@/store';
 
 // import {router,RouterMount} from './router.js'  //路径换成自己的
@@ -27,6 +28,7 @@ Object.keys = (obj) => {
 
 Vue.config.productionTip = false
 Vue.mixin(vuexStore);
+Vue.mixin(goPageWithObjectAndCallback);
 App.mpType = 'app'
 
 Vue.use(uView);
