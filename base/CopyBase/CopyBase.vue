@@ -1,3 +1,11 @@
+<!--
+ * @Author 不爱喝橙子汁
+ * @Date: 2021-08-31 12:02:01
+ * @LastEditTime: 2021-09-18 13:22:27
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /uniapp_uview_source_project/base/CopyBase/CopyBase.vue
+-->
 <template>
 	<view>
 		
@@ -29,7 +37,6 @@
 						type: 'error'
 					})
 				}
-				
 			}
 		}
 	}
